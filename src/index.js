@@ -1,6 +1,3 @@
-const restartBtn = document.getElementById('game-restart-button');
-restartBtn.style.display = "none";
-
 export default class BaseballGame {
     play(randomNumber, inputNumber) {
         let ball = 0, strike = 0;
@@ -62,7 +59,7 @@ function msg(ball, strike) {
 }
 
 // 임의의 숫자
-const randomNumber = getRandomNumber();
+let randomNumber = getRandomNumber();
 console.log(randomNumber);
 
 // 임의의 숫자 3자리 생성
@@ -128,3 +125,14 @@ function isDuplicate(arr)  {
 
 // 결과 출력 div
 const result = document.getElementById('result');
+
+// 재시작 버튼
+const restartBtn = document.getElementById('game-restart-button');
+restartBtn.style.display = "none";
+restartBtn.addEventListener("click", () => {
+    randomNumber = getRandomNumber(); // 새 정답 생성
+    result.textContent = "";
+    document.getElementById('user-input').value = "";
+    restartBtn.style.display = "none";
+    console.log("[restart] new randomNumber:", randomNumber);
+});
