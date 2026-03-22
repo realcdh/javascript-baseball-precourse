@@ -2,7 +2,7 @@
 export function isValidity(inputNumber) {
     // 숫자가 아닌 경우
     for (let i = 0; i < inputNumber.length; i++) {
-        if ('0' > inputNumber[i] || inputNumber[i] > '9') {
+        if ('1' > inputNumber[i] || inputNumber[i] > '9') {
             throw new Error('숫자를 입력해 주세요.');
         }
     }
