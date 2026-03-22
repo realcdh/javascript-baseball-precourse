@@ -27,20 +27,12 @@ export default class BaseballGame {
 
     play(randomNumber, inputNumber) {
         let ball = 0, strike = 0;
-
-        // 볼 개수 확인
-        for (let i = 0; i < randomNumber.length; i++) {
-            for (let j = 0; j < inputNumber.length; j++) {
-                if (randomNumber[i] == inputNumber[j]) {
-                    ball++;
-                }
-            }
-        }
-
-        // 스트라이크 개수 확인
+        
         for (let i = 0; i < randomNumber.length; i++) {
             if (randomNumber[i] == inputNumber[i]) {
                 strike++;
+            } else if (randomNumber.some((number) => number == inputNumber[i])) {
+                ball++;
             }
         }
 
