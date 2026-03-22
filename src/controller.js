@@ -21,12 +21,39 @@ export default class BaseballController {
             this.model.checkValidity(inputNumber);
             
             const score = this.model.play(this.model.randomNumber, inputNumber);
-            this.outputView.showResult(score.ball, score.strike);
+            const result = this.createResultMessage(score);
+            this.outputView.showResult(result.message, result.isAnswer);
             
         } catch (error) {
             this.outputView.showError(error.message);
             this.inputView.clearInput();
         }
+    }
+
+    createResultMessage(score) {
+        if (score.ball == 3 && score.strike == 3) {
+            return {
+                message: "<h4>🎉정답을 맞추셨습니다🎉</h4><br><div>게임을 새로 하시겠습니까?</div><br>",
+                isAnswer: true,
+            };
+        }
+
+        if (score.ball == 0 && score.strike == 0) {
+            return {message: "낫싱", isAnswer: false};
+        }
+
+        if (score.ball == 0 && score.strike != 0) {
+            return {message: score.strike + "스트라이크", isAnswer: false};
+        }
+
+        if (score.ball != 0 && score.strike == 0) {
+            return {message: score.ball + "볼", isAnswer: false};
+        }
+
+        return {
+            message: score.ball + "볼 " + score.strike + "스트라이크",
+            isAnswer: false,
+        };
     }
 
     onRestart() {
