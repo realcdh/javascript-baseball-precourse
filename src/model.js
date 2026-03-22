@@ -1,4 +1,4 @@
-import {isDuplicate, checkValidity} from './utils/validation.js';
+import {isDuplicate, isValidity} from './utils/validation.js';
 
 export default class BaseballGame {
     constructor() {
@@ -22,7 +22,7 @@ export default class BaseballGame {
     }
 
     checkValidity(inputNumber) {
-        checkValidity(inputNumber);
+        isValidity(inputNumber);
     }
 
     play(randomNumber, inputNumber) {

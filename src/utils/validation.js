@@ -1,5 +1,5 @@
  // 입력한 숫자에 대한 유효성 검사
-export function checkValidity(inputNumber) {
+export function isValidity(inputNumber) {
     // 숫자가 아닌 경우
     for (let i = 0; i < inputNumber.length; i++) {
         if ('0' > inputNumber[i] || inputNumber[i] > '9') {
