@@ -30,7 +30,6 @@ export default class BaseballController {
     }
 
     onRestart() {
-        this.model.init();
         this.inputView.clearInput();
         this.outputView.clearResult();
     }
